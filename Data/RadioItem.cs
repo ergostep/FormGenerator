@@ -1,4 +1,4 @@
-namespace FormGenerator.Model
+namespace FormGenerator.Data
 {
     public class RadioItem
     {
