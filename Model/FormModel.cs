@@ -8,14 +8,13 @@ namespace FormGenerator.Model
     {
         private string _jsonPath;
         private Form _form;
-        private IHtmlElement _element;
         private string _postMessage;
         public FormModel(string jsonPath)
         {
-            jsonPath = _jsonPath;
+            _jsonPath = jsonPath;
             LoadJson();
         }
-        private List<string> _webElementsHtml;
+        private List<string> _webElementsHtml = new List<string>();
         public List<string> webElementsHtml
         {
             get { return _webElementsHtml; }
@@ -38,37 +37,47 @@ namespace FormGenerator.Model
         {
             _postMessage = _form.postmessage;
             var sb = new StringBuilder();
+            string html = "";
+            IHtmlElement element = new Filler();
             sb.Append($"<form name=\"{_form.name}\">\n");
             foreach (var item in _form.items)
             {
                 switch (item.type)
                 {   
                     case "filler":
-                        _element = new Filler();
+                        element = new Filler();
+                        //html = _element.GetHtmlRepresentation(item);
                         break;
                     case "text":
-                        _element = new Input();
+                        element = new Input();
+                        //html = _element.GetHtmlRepresentation(item);
                         break;
                     case "textarea":
-                        _element = new TextArea();
+                        element = new TextArea();
+                        //html = element.GetHtmlRepresentation(item);
                         break;
                     case "checkbox":
-                        _element = new CheckBox();
+                        element = new CheckBox();
+                        //html = _element.GetHtmlRepresentation(item);
                         break;
                     case "button":
-                        _element = new Button();
+                        element = new Button();
+                        //html = _element.GetHtmlRepresentation(item);
                         break;
                     case "select":
-                        _element = new Select();
+                        element = new Select();
+                        //html = _element.GetHtmlRepresentation(item);
                         break;
                     case "radio":
-                        _element = new Radio();
+                        //element = new Radio();
                         break;
                     default:
                         throw new Exception("Incorrect element type");
                 }
-                sb.Append(_element.GetHtmlRepresentation(item));
-                 _webElementsHtml.Add(_element.GetHtmlRepresentation(item));
+                html = element.GetHtmlRepresentation(item);
+                sb.Append(html);
+                _webElementsHtml.Add(html);
+                
             }
             sb.Append("/n</form>"); 
             return sb.ToString(); 
