@@ -46,30 +46,24 @@ namespace FormGenerator.Model
                 {   
                     case "filler":
                         element = new Filler();
-                        //html = _element.GetHtmlRepresentation(item);
                         break;
                     case "text":
                         element = new Input();
-                        //html = _element.GetHtmlRepresentation(item);
                         break;
                     case "textarea":
                         element = new TextArea();
-                        //html = element.GetHtmlRepresentation(item);
                         break;
                     case "checkbox":
                         element = new CheckBox();
-                        //html = _element.GetHtmlRepresentation(item);
                         break;
                     case "button":
                         element = new Button();
-                        //html = _element.GetHtmlRepresentation(item);
                         break;
                     case "select":
                         element = new Select();
-                        //html = _element.GetHtmlRepresentation(item);
                         break;
                     case "radio":
-                        //element = new Radio();
+                        element = new Radio();
                         break;
                     default:
                         throw new Exception("Incorrect element type");
@@ -79,7 +73,7 @@ namespace FormGenerator.Model
                 _webElementsHtml.Add(html);
                 
             }
-            sb.Append("/n</form>"); 
+            sb.Append("</form>");
             return sb.ToString(); 
         }
     }

@@ -6,7 +6,7 @@ namespace FormGenerator.Model
     {    
         public string GetHtmlRepresentation(Item item)
         {
-            return $"<button class=\"{item.@class}\">{item.text}</button>";
+            return $"<br><button class=\"{item.@class}\">{item.text}</button>";
         }
     }
 }

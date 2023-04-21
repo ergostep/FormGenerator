@@ -13,11 +13,10 @@ public class TextArea : IHtmlElement
         var sb = new StringBuilder();
         if(item.label != "")
         {
-            sb.Append(Generator.GenerateLabel(item.name, item.label));
+            sb.Append("<br>"+Generator.GenerateLabel(id, item.label));
         }
         sb.Append($"<textarea type=\"{item.validationRules.type}\"");
         sb.Append(Generator.GenerateTextAttributes(id, item.name, item.value, item.@class, item.disabled, item.placeholder, item.required));
-        sb.Append("><br>");
         return sb.ToString();     
     }  
     

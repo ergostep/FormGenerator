@@ -19,7 +19,7 @@ public class CheckBox : IHtmlElement
         {
             sb.Append(" checked");
         }
-        sb.Append("><br>");
+        sb.Append(">");
         return sb.ToString();     
     }     
 }
