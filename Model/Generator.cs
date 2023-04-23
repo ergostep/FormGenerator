@@ -37,7 +37,7 @@ namespace FormGenerator.Model
         }
         public static string GenerateLabel(string id, string label)
         {
-            return $"<label for=\"{id}\">{label}</label><br>";
+            return $"<br><label for=\"{id}\">{label}</label><br>";
         }
         public static void CheckValidationRule(string rule)
         {

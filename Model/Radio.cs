@@ -13,7 +13,7 @@ public class Radio : IHtmlElement
             string id = Guid.NewGuid().ToString();
             if(radioitem.label != "")
             {
-                sb.Append("<br>"+Generator.GenerateLabel(id, radioitem.label));
+                sb.Append(Generator.GenerateLabel(id, radioitem.label));
             }
             sb.Append($"<input type=\"radio\"");
             sb.Append(Generator.GenerateTextAttributes(id, item.name, radioitem.value, item.@class, item.disabled, item.placeholder, item.required));
